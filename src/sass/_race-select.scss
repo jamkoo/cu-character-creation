@@ -1,0 +1,214 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+.cu-character-creation__race-select {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.gender-btn {
+  width: 130px;
+  margin: 5px;
+  -webkit-user-select: none;
+  cursor: pointer !important;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.25);
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  &:active {
+    background-color: rgba(255, 200, 100, 0.15);
+  }
+  &:disabled {
+    border: 1px solid rgba(10, 10, 10, 0.5);
+    background-color: rgba(10, 10, 10, 0.5);
+  }
+}
+
+.selected {
+  background-color: rgba(255, 10, 255, 0.5);
+  &:hover {
+    background-color: rgba(255, 10, 200, 0.5);
+  }
+}
+
+
+@mixin race-thumbnail($url) {
+  background-image: url($url);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  width: 44px;
+  height: 48px;
+  margin: 2.5px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  &:hover {
+    border: 1px solid orangered;
+  }
+  &:active {
+    border: 1px solid rebeccapurple;
+  }
+}
+
+@mixin race-standing($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.cu-character-creation__race-select__selection-area {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 10px;
+  h6 {
+    width: 100%;
+    text-transform: uppercase;
+  }
+  color: #e2e2e2;
+}
+
+.cu-character-creation__race-select__text {
+  color: #e2e2e2;
+  overflow-y: auto;
+  margin-top: 20px;
+  height: 300px;
+}
+
+.cu-character-creation__race-select__HAMADRYAD__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/hamadryad.jpg');
+}
+
+.cu-character-creation__race-select__LUCHORPAN__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/luchorpan.jpg');
+}
+
+.cu-character-creation__race-select__FIRBOG__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/firbog.jpg');
+}
+
+.cu-character-creation__race-select__VALKYRIE__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/valkyrie.jpg');
+}
+
+.cu-character-creation__race-select__HELBOUND__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/helbound.jpg');
+}
+
+.cu-character-creation__race-select__FROSTGIANT__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/frostgiant.jpg');
+}
+
+.cu-character-creation__race-select__STRM__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/strm.jpg');
+}
+
+.cu-character-creation__race-select__CAITSITH__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/caitsith.jpg');
+}
+
+.cu-character-creation__race-select__GOLEM__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/golem.jpg');
+}
+
+.cu-character-creation__race-select__STORMRIDERT__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/stormridert.jpg');
+}
+
+.cu-character-creation__race-select__STORMRIDERA__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/stormridera.jpg');
+}
+
+.cu-character-creation__race-select__STORMRIDERV__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/stormriderv.jpg');
+}
+
+.cu-character-creation__race-select__HUMANMALEV__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/humanmalev.jpg');
+}
+
+.cu-character-creation__race-select__HUMANMALEA__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/humanmalea.jpg');
+}
+
+.cu-character-creation__race-select__HUMANMALET__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/humanmalet.jpg');
+}
+
+// -------
+
+.cu-character-creation__race-select__view-area {
+  flex-grow: 1;
+  display: flex;
+}
+
+.cu-character-creation__race-select__view-area__HAMADRYAD {
+  @include race-standing('../images/races/standing/hamadryad.png');
+}
+
+.cu-character-creation__race-select__view-area__LUCHORPAN {
+  @include race-standing('../images/races/standing/luchorpan.png');
+}
+
+.cu-character-creation__race-select__view-area__FIRBOG {
+  @include race-standing('../images/races/standing/firbog.png');
+}
+
+.cu-character-creation__race-select__view-area__VALKYRIE {
+  @include race-standing('../images/races/standing/valkyrie.png');
+}
+
+.cu-character-creation__race-select__view-area__HELBOUND {
+  @include race-standing('../images/races/standing/helbound.png');
+}
+
+.cu-character-creation__race-select__view-area__FROSTGIANT {
+  @include race-standing('../images/races/standing/frostgiant.png');
+}
+
+.cu-character-creation__race-select__view-area__STRM {
+  @include race-standing('../images/races/standing/strm.png');
+}
+
+.cu-character-creation__race-select__view-area__CAITSITH {
+  @include race-standing('../images/races/standing/caitsith.png');
+}
+
+.cu-character-creation__race-select__view-area__GOLEM {
+  @include race-standing('../images/races/standing/golem.png');
+}
+
+.cu-character-creation__race-select__view-area__STORMRIDERT {
+  @include race-standing('../images/races/standing/stormridert.png');
+}
+
+.cu-character-creation__race-select__view-area__STORMRIDERA {
+  @include race-standing('../images/races/standing/stormridera.png');
+}
+
+.cu-character-creation__race-select__view-area__STORMRIDERV {
+  @include race-standing('../images/races/standing/stormriderv.png');
+}
+
+.cu-character-creation__race-select__view-area__HUMANMALEV {
+  @include race-standing('../images/races/standing/humans.png');
+}
+
+.cu-character-creation__race-select__view-area__HUMANMALEA {
+  @include race-standing('../images/races/standing/humans.png');
+}
+
+.cu-character-creation__race-select__view-area__HUMANMALET {
+  @include race-standing('../images/races/standing/humans.png');
+}

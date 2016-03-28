@@ -1,0 +1,116 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+.cu-character-creation__faction-select {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.cu-character-creation__faction-select__TDD {
+  background-image: url('../images/tdd-bg.png');
+  background-size: cover;
+  overflow: hidden;
+  transition: flex-grow .5s ease-in-out;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .cu-character-creation__faction-select__TDD__shield {
+    background-image: url('../images/tdd-shield.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    cursor: pointer !important;
+  }
+  .cu-character-creation__faction-select__TDD__description {
+    opacity: 0;
+    transition: all .5s ease-in-out;
+    margin-left: 20px;
+    width: 0px;
+    color: #e2e2e2;
+    -webkit-user-select: none;
+    cursor: pointer !important;
+  }
+  &:hover {
+    flex-grow: 3;
+    .cu-character-creation__faction-select__TDD__description {
+      opacity: 1;
+      width: 400px;
+    }
+  }
+}
+
+.cu-character-creation__faction-select__Arthurian {
+  background-image: url('../images/arthurian-bg.png');
+  background-size: cover;
+  overflow: hidden;
+  transition: flex-grow .5s ease-in-out;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .cu-character-creation__faction-select__Arthurian__shield {
+    background-image: url('../images/arthurian-shield.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    cursor: pointer !important;
+  }
+  .cu-character-creation__faction-select__Arthurian__description {
+    opacity: 0;
+    transition: all .5s ease-in-out;
+    margin-left: 20px;
+    width: 0px;
+    color: #e2e2e2;
+    -webkit-user-select: none;
+    cursor: pointer !important;
+  }
+  &:hover {
+    flex-grow: 3;
+    .cu-character-creation__faction-select__Arthurian__description {
+      opacity: 1;
+      width: 400px;
+    }
+  }
+}
+
+.cu-character-creation__faction-select__Viking {
+  background-image: url('../images/viking-bg.png');
+  background-size: cover;
+  overflow: hidden;
+  transition: flex-grow .5s ease-in-out;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .cu-character-creation__faction-select__Viking__shield {
+    background-image: url('../images/viking-shield.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    cursor: pointer !important;
+  } 
+  .cu-character-creation__faction-select__Viking__description {
+    opacity: 0;
+    transition: all .5s ease-in-out;
+    margin-left: 20px;
+    width: 0px;
+    color: #e2e2e2;
+    -webkit-user-select: none;
+    cursor: pointer !important;
+  }
+  &:hover {
+    flex-grow: 3;
+    .cu-character-creation__faction-select__Viking__description {
+      opacity: 1;
+      width: 400px;
+    }
+  }
+}

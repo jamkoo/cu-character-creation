@@ -1,0 +1,84 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+@import 'constants';
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: darken($color1, 70%);
+  border: 1px solid #4E4E4E;
+}
+
+a {
+  color: #e2e2e2;  
+}
+
+#cu-character-creation {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: url(../images/bg.jpg) repeat-x top center fixed;
+  background-color: $color2;
+  color: white;
+}
+
+.cu-character-creation {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: url(../images/bg.jpg) repeat-x top center fixed;
+  background-color: $color2;
+  color: #e2e2e2;
+}
+
+.cu-character-creation__content {
+  height: 100%;
+}
+
+.cu-btn {
+  margin: 5px;
+  -webkit-user-select: none;
+  cursor: pointer !important;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.25);
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  &:active {
+    background-color: rgba(255, 200, 100, 0.15);
+  }
+  &:disabled {
+    border: 1px solid rgba(10, 10, 10, 0.5);
+    background-color: rgba(10, 10, 10, 0.5);
+  }
+}
+
+.right {
+  float: right; 
+}
+
+.left {
+  float: left;
+}
+
+@import 'faction-select';
+@import 'race-select';
+@import 'class-select';
+@import 'navigation';
+
+// overlay stuff goes last :)
+.active {
+  border: 3px solid #EAC300;
+}
