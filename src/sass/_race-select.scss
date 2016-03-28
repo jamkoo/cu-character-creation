@@ -4,37 +4,43 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-.cu-character-creation__race-select {
+.cu-character-creation__race-select, .cu-character-creation__class-select, .cu-character-creation__attribute-select {
   height: 100%;
   display: flex;
   flex-direction: row;
+  padding: 20px;
 }
 
 .gender-btn {
-  width: 130px;
+  width: 125px;
   margin: 5px;
   -webkit-user-select: none;
   cursor: pointer !important;
   padding: 10px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
   font-weight: 700;
-  background-color: rgba(255, 255, 255, 0.25);
+  background: $gradient2;
+  border: solid $colorg2 1px;
+  color: $color1;
+  transition: all .2s ease-in-out;
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    filter: brightness(1.2);
+    -webkit-filter: brightness(1.2);
   }
   &:active {
     background-color: rgba(255, 200, 100, 0.15);
   }
   &:disabled {
-    border: 1px solid rgba(10, 10, 10, 0.5);
-    background-color: rgba(10, 10, 10, 0.5);
+    opacity: .5;
   }
 }
-
+    
 .selected {
-  background-color: rgba(255, 10, 255, 0.5);
+  background: $gradient4;
+  border: solid $colorg4 1px;
+  color: $colorg4;
   &:hover {
-    background-color: rgba(255, 10, 200, 0.5);
+    filter: brightness(1.2);
+    -webkit-filter: brightness(1.2);
   }
 }
 
@@ -48,11 +54,12 @@
   height: 48px;
   margin: 2.5px;
   border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all .2s ease-in-out;
   &:hover {
-    border: 1px solid orangered;
+    border: 1px solid rgba(255,225,78,0.50);
   }
   &:active {
-    border: 1px solid rebeccapurple;
+    border: 1px solid rgba(255,225,78,0.80);
   }
 }
 
@@ -65,7 +72,13 @@
   flex-grow: 1;
 }
 
-.cu-character-creation__race-select__selection-area {
+.cu-character-creation__race-select__selection-area, .cu-character-creation__class-select__selection-area, .cu-character-creation__attribute-select__selection-area {
+  position: absolute;
+  z-index: 10;
+  background: $sidebar-bg;
+  border-width: 1px;
+  border-image: $gradient-border;
+  border-image-slice: 1;
   width: 300px;
   display: flex;
   flex-direction: row;
@@ -84,6 +97,8 @@
   overflow-y: auto;
   margin-top: 20px;
   height: 300px;
+  border: 1px solid rgba(70, 70, 70, 0.78);
+  padding: 5px;
 }
 
 .cu-character-creation__race-select__HAMADRYAD__thumbnail {
