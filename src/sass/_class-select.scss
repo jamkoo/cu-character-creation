@@ -3,23 +3,3 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-
-.cu-character-creation__class-select {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-.cu-character-creation__class-select__selection-area {
-  width: 300px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  padding: 10px;
-  h6 {
-    width: 100%;
-    text-transform: uppercase;
-  }
-  color: #e2e2e2;
-}
