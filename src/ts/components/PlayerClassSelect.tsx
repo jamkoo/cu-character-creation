@@ -37,9 +37,9 @@ class PlayerClassSelect extends React.Component<PlayerClassSelectProps, PlayerCl
 
   generateClassContent = (info: PlayerClassInfo) => {
     return (
-      <button key={info.id}
-              className={`cu-character-creation__class-select__${archetype[info.id]}`}
-              onClick={this.selectClass.bind(this, info)}>{info.name}</button>
+      <a key={info.id}
+              className={`cu-character-creation__class-select__${archetype[info.id]} ${this.props.selectedClass !== null ? this.props.selectedClass.id == info.id ? 'active' : '' : ''}`}
+              onClick={this.selectClass.bind(this, info)}></a>
     );
   }
 
