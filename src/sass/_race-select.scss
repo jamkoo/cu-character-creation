@@ -18,6 +18,7 @@
   cursor: pointer !important;
   padding: 10px 20px;
   font-weight: 700;
+  text-align: center;
   background: $gradient2;
   border: solid $colorg2 1px;
   color: $color1;
@@ -50,8 +51,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
-  width: 44px;
-  height: 48px;
+  width: 50px;
+  height: 45px;
   margin: 2.5px;
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: all .2s ease-in-out;
@@ -150,16 +151,29 @@
 }
 
 .cu-character-creation__race-select__HUMANMALEV__thumbnail {
-  @include race-thumbnail('../images/races/thumbnail/humanmalev.jpg');
+  @include race-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/Icon_Humans-M-Vik.png');
 }
 
 .cu-character-creation__race-select__HUMANMALEA__thumbnail {
-  @include race-thumbnail('../images/races/thumbnail/humanmalea.jpg');
+  @include race-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/Icon_Humans-M-Art.png');
 }
 
 .cu-character-creation__race-select__HUMANMALET__thumbnail {
   @include race-thumbnail('../images/races/thumbnail/humanmalet.jpg');
 }
+
+.cu-character-creation__race-select__HUMANFEMALEV__thumbnail {
+  @include race-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/Icon_Humans-F-Vik.png');
+}
+
+.cu-character-creation__race-select__HUMANFEMALEA__thumbnail {
+  @include race-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/Icon_Humans-F-Art.png');
+}
+
+.cu-character-creation__race-select__HUMANFEMALET__thumbnail {
+  @include race-thumbnail('../images/races/thumbnail/humanmalet.jpg');
+}
+
 
 // -------
 
@@ -217,13 +231,26 @@
 }
 
 .cu-character-creation__race-select__view-area__HUMANMALEV {
-  @include race-standing('../images/races/standing/humans.png');
+  @include race-standing('https://s3.amazonaws.com/camelot-unchained/character-creation/character/Humans-M-Vik.png');
 }
 
 .cu-character-creation__race-select__view-area__HUMANMALEA {
-  @include race-standing('../images/races/standing/humans.png');
+  @include race-standing('https://s3.amazonaws.com/camelot-unchained/character-creation/character/Humans-M-Art.png');
 }
 
 .cu-character-creation__race-select__view-area__HUMANMALET {
   @include race-standing('../images/races/standing/humans.png');
 }
+
+.cu-character-creation__race-select__view-area__HUMANFEMALEV {
+  @include race-standing('https://s3.amazonaws.com/camelot-unchained/character-creation/character/Humans-F-Vik.png');
+}
+
+.cu-character-creation__race-select__view-area__HUMANFEMALEA {
+  @include race-standing('https://s3.amazonaws.com/camelot-unchained/character-creation/character/Humans-F-Art.png');
+}
+
+.cu-character-creation__race-select__view-area__HUMANFEMALET {
+  @include race-standing('../images/races/standing/humans.png');
+}
+

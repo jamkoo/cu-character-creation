@@ -41,9 +41,9 @@ class AttributesSelect extends React.Component<AttributesSelectProps, Attributes
     return (
       <div key={attributeInfo.name} className={`cu-character-creation__attributes__attribute-select--${attributeInfo.name}`}>
         <span>{attributeInfo.name} </span>
-        <button onClick={() => this.props.allocatePoint(attributeInfo.name, -1)}>-</button>
-        <span>{attributeInfo.baseValue + attributeInfo.allocatedPoints}</span>
-        <button onClick={() => this.props.allocatePoint(attributeInfo.name, 1)} >+</button>
+        <button className='leftarrow' onClick={() => this.props.allocatePoint(attributeInfo.name, -1)}></button>
+        <span className='attribute-points'>{attributeInfo.baseValue + attributeInfo.allocatedPoints}</span>
+        <button className='rightarrow' onClick={() => this.props.allocatePoint(attributeInfo.name, 1)} ></button>
       </div>
     );
   }

@@ -45,9 +45,10 @@ class FactionSelect extends React.Component<FactionSelectProps, FactionSelectSta
         <video src={`../videos/${info.shortName}.webm`} poster={`../videos/${info.shortName}-bg.jpg`} autoPlay loop></video>
         <div className={`cu-character-creation__faction-select__${info.shortName}__shield`}
              onClick={this.selectFaction.bind(this, info)}></div>
+             <h4>{info.description}</h4>
         <div className={`cu-character-creation__faction-select__${info.shortName}__description`}
              onClick={this.selectFaction.bind(this, info)}>
-             <h4>{info.description}</h4>
+             
              {realmText[info.shortName]}
         </div>
       </div>

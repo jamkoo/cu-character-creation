@@ -10,13 +10,18 @@
   flex-direction: row;
 }
 
+h4{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
 @mixin faction-select-realm($bg_url) {
   background-image: url($bg_url);
   background-size: cover;
   position: relative;
   video {
     position: absolute;
-    left: 0;
+    left: -50%;
     top: 0;
     height: 100%;
     z-index: -1;
@@ -27,7 +32,7 @@
   display: inline;
   justify-content: center;
   align-items: center;
-  padding-top: 10%;
+  padding-top: 15%;
   cursor: pointer !important;
   z-index: 1;
 }

@@ -20,14 +20,14 @@
 
 @font-face {
   font-family: 'TitilliumWebBold';
-  src: url(../font/TitilliumWeb/TitilliumWeb-Bold.ttf) format('truetype');
+  src: url(../font/TitilliumWeb/TitilliumWeb-SemiBold.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'TitilliumWebBoldItalic';
-  src: url(../font/TitilliumWeb/TitilliumWeb-BoldItalic.ttf) format('truetype');
+  src: url(../font/TitilliumWeb/TitilliumWeb-SemiBoldItalic.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -40,7 +40,7 @@ body {
   font-family: 'TitilliumWeb', sans-serif;
 }
 
-h1 {
+h2, h3, h5, h6 {
   font-family: 'TitilliumWebBold';
   font-weight: normal;
 }
