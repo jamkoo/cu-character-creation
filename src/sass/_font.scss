@@ -32,6 +32,56 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'LibreBaskerville';
+  src: url(../font/Libre_Baskerville/LibreBaskerville-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LibreBaskervilleItalic';
+  src: url(../font/Libre_Baskerville/LibreBaskerville-Italic.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LibreBaskervilleBold';
+  src: url(../font/Libre_Baskerville/LibreBaskerville-Bold.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Caudex';
+  src: url(../font/Caudex/Caudex-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CaudexItalic';
+  src: url(../font/Caudex/Caudex-Italic.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CaudexBold';
+  src: url(../font/Caudex/Caudex-Bold.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CaudexBoldItalic';
+  src: url(../font/Caudex/Caudex-BoldItalic.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 html {
   font-family: 'TitilliumWeb', sans-serif;
 }
@@ -40,8 +90,8 @@ body {
   font-family: 'TitilliumWeb', sans-serif;
 }
 
-h2, h3, h5, h6 {
-  font-family: 'TitilliumWebBold';
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'CaudexBold';
   font-weight: normal;
 }
 
@@ -58,5 +108,5 @@ strong em {
 }
 
 strong, b {
-  font-family: 'TitilliumWebBold'; 
+  font-family: 'TitilliumWebBold';
 }

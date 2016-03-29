@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 @import 'constants';
+@import 'font';
 
 ::-webkit-scrollbar {
   width: 15px;
@@ -101,7 +102,6 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 @import 'class-select';
 @import 'attribute-select';
 @import 'navigation';
-@import 'font';
 @import 'responsive';
 
 // overlay stuff goes last :)

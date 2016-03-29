@@ -117,6 +117,16 @@ class CharacterCreation extends React.Component<any, any> {
 
   }
 
+  selectFaction = (selected: FactionInfo) => {
+    this.props.dispatch(selectFaction(selected));
+
+    // reset race & class if they are not of the selected faction
+    if (this.props.racesState.selected && this.props.racesState.selected.faction != selected.id) {
+      this.props.dispatch(selectRace(null));
+      this.props.dispatch(selectPlayerClass(null));
+    }
+  }
+
   render() {
     let content: any = null;
     let next: any = null;
@@ -127,7 +137,7 @@ class CharacterCreation extends React.Component<any, any> {
         content = (
           <FactionSelect factions={this.props.factionsState.factions}
                          selectedFaction={this.props.factionsState.selected}
-                         selectFaction={(selected: FactionInfo) => this.props.dispatch(selectFaction(selected))} />
+                         selectFaction={this.selectFaction} />
         );
         next = (
           <a className='cu-btn right'
@@ -145,10 +155,10 @@ class CharacterCreation extends React.Component<any, any> {
                       selectRace={(selected: RaceInfo) => this.props.dispatch(selectRace(selected))}
                       selectedGender={this.props.gender}
                       selectGender={(selected: gender) => this.props.dispatch(selectGender(selected))}
-                      faction={this.props.factionsState.selected.id} />
+                      selectedFaction={this.props.factionsState.selected} />
         );
         back = (
-          <a className='cu-btn left' 
+          <a className='cu-btn left'
              onClick={() => this.setState({page: this.state.page - 1})}
              disabled={this.state.page == pages.FACTION_SELECT} >Back</a>
         );
@@ -171,7 +181,7 @@ class CharacterCreation extends React.Component<any, any> {
                              faction={this.props.factionsState.selected.id} />
         );
         back = (
-          <a className='cu-btn left' 
+          <a className='cu-btn left'
              onClick={() => this.setState({page: this.state.page - 1})}
              disabled={this.state.page == pages.FACTION_SELECT} >Back</a>
         );
@@ -193,7 +203,7 @@ class CharacterCreation extends React.Component<any, any> {
                             remainingPoints={this.props.attributesState.maxPoints - this.props.attributesState.pointsAllocated} />
         );
         back = (
-          <a className='cu-btn left' 
+          <a className='cu-btn left'
              onClick={() => this.setState({page: this.state.page - 1})}
              disabled={this.state.page == pages.FACTION_SELECT} >Back</a>
         );

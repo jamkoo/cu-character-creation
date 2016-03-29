@@ -9,15 +9,16 @@ import * as React from 'react';
 import {race, faction, gender} from 'camelot-unchained';
 
 import {RaceInfo} from '../redux/modules/races';
+import {FactionInfo} from '../redux/modules/factions';
 
 const raceText: any = {
   'STRM': 'The scaly St’rm are one of the most enigmatic races in all the Realms. Their origins are clouded in rumor and mystery, and the St’rm are only too happy to keep it that way. It is known that the St’rm have a matriarchal society, and their most famous warriors are female–perhaps partly because of unusual differences between the sexes. The St’rm are elegant and graceful, and very proud of the power that lies in their rhythmic movements. They form strong alliances and friendships, for the St’rm are also famous for honoring other races. To the St’rm, to battle is to dance, and their graceful steps are a form of magic themselves.',
-  
-  
+
+
 }
 
 export interface RaceSelectProps {
-  faction: faction;
+  selectedFaction: FactionInfo;
   races: Array<RaceInfo>;
   selectedRace: RaceInfo;
   selectRace: (race: RaceInfo) => void;
@@ -48,19 +49,20 @@ class RaceSelect extends React.Component<RaceSelectProps, RaceSelectState> {
 
   render() {
     if (!this.props.races) return <div>loading races</div>;
-    
+
     let view: any = null;
     let text: any = null;
     if (this.props.selectedRace) {
       view = <div className={`cu-character-creation__race-select__view-area__${race[this.props.selectedRace.id]}`}></div>
       text = <div className='cu-character-creation__race-select__text'>{raceText[race[this.props.selectedRace.id]]}</div>
     }
-    
+
     return (
       <div className='cu-character-creation__race-select'>
+        <video src={`../videos/${this.props.selectedFaction.shortName}.webm`} poster={`../videos/${this.props.selectedFaction.shortName}-bg.jpg`} autoPlay loop></video>
         <div className='cu-character-creation__race-select__selection-area'>
           <h6>Choose your race</h6>
-          {this.props.races.filter((r: any) => r.faction === this.props.faction).map(this.generateRaceContent)}
+          {this.props.races.filter((r: any) => r.faction === this.props.selectedFaction.id).map(this.generateRaceContent)}
           <h6>Choose your gender</h6>
           <a className={`gender-btn ${this.props.selectedGender == gender.MALE ? 'selected' : ''}`}
              onClick={() => this.props.selectGender(gender.MALE)}>Male</a>
