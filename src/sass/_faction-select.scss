@@ -38,8 +38,9 @@ h4{
     height: auto;
   }
   overflow: hidden;
-  transition: flex-grow .3s ease-in-out, padding .3s ease-in-out, opacity .3s ease-in-out;
+  transition: all .3s ease-in-out;
   flex-grow: 1;
+  outline: 0px solid rgba(255, 255, 255, 0.0);
   display: inline;
   justify-content: center;
   align-items: center;
