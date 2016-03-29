@@ -46,7 +46,7 @@ a {
 }
 
 .cu-btn {
-  background: $gradient2;
+  background: $gradient2, rgba(31, 31, 31, 0.8);
   border: solid $colorg2 1px;
   color: #eaeaea;
   position: relative;
@@ -56,7 +56,8 @@ a {
   text-align: center;
   cursor: pointer;
   text-transform: uppercase;
-  padding: 5px 30px;
+  padding: 10px 50px;
+  font-size: 1.5rem;
   transition: all .2s ease-in-out;
   z-index: 10;
   &:hover {
