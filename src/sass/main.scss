@@ -20,7 +20,7 @@
 }
 
 a {
-  color: #e2e2e2;  
+  color: #e2e2e2;
 }
 
 #cu-character-creation {
@@ -53,11 +53,12 @@ a {
   margin: 0px 25px;
   line-height: 30px;
   font-weight: 700;
-  text-align: center;  
+  text-align: center;
   cursor: pointer;
   text-transform: uppercase;
   padding: 5px 30px;
   transition: all .2s ease-in-out;
+  z-index: 10;
   &:hover {
     filter: brightness(1.2);
     -webkit-filter: brightness(1.2);
@@ -67,12 +68,12 @@ a {
   }
   &:disabled {
     opacity: .5;
-    
+
   }
 }
 
 .right {
-  float: right; 
+  float: right;
 }
 
 .left {
@@ -109,14 +110,14 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   outline: 1px solid rgba(223, 255, 120, 0.6);
   outline-offset: -15px;
 }
-  
+
 .cu-character-creation__faction-select__Arthurian.active {
   border: none;
   box-shadow: inset 0px -220px 210px -10px rgba(136, 0, 0, 0.3);
   outline: 1px solid rgba(255, 100, 94, 0.6);
   outline-offset: -15px;
 }
-  
+
 .cu-character-creation__faction-select__Viking.active {
   border: none;
   box-shadow: inset 0px -220px 210px -10px rgba(0, 86, 136, 0.3);

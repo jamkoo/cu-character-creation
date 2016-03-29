@@ -11,8 +11,8 @@
 }
 
 @mixin faction-select-realm($bg_url) {
-  //background-image: url($bg_url);
-  //background-size: cover;
+  background-image: url($bg_url);
+  background-size: cover;
   position: relative;
   video {
     position: absolute;
@@ -29,7 +29,7 @@
   align-items: center;
   padding-top: 10%;
   cursor: pointer !important;
-  z-index: 100;
+  z-index: 1;
 }
 
 
@@ -99,8 +99,6 @@
 
 .cu-character-creation__faction-select__Viking {
   @include faction-select-realm('../images/viking-bg.png');
-  background-image: url('../images/viking-bg.png');
-  background-size: cover;
   .cu-character-creation__faction-select__Viking__shield {
     @include faction-select__shield('../images/viking-shield.png');
   }
