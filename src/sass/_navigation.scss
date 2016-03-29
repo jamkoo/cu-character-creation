@@ -6,10 +6,11 @@
 
 .cu-character-creation__navigation {
   position: fixed;
-  bottom: 20px;
+  bottom: 0px;
   left: 0px;
   right: 0px;
   z-index: 2;
+  padding: 50px 0 20px 0;
 }
 
 .cu-character-creation__name {
