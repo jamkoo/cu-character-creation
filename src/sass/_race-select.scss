@@ -22,6 +22,12 @@
   }
 }
 
+.cu-character-creation__race-select_name {
+  position: fixed;
+  left: 350px;
+  z-index: 2;
+}
+
 .gender-btn {
   width: 125px;
   margin: 5px;

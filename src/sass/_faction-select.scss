@@ -33,7 +33,8 @@ h4{
   overflow: hidden;
   transition: flex-grow .3s ease-in-out, padding .3s ease-in-out, opacity .3s ease-in-out;
   flex-grow: 1;
-  display: inline;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 15%;
@@ -50,7 +51,6 @@ h4{
   background-position: center;
   height: 200px;
   width: 200px;
-  margin: auto;
   cursor: pointer !important;
 }
 

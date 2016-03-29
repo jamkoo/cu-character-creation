@@ -52,13 +52,16 @@ class RaceSelect extends React.Component<RaceSelectProps, RaceSelectState> {
 
     let view: any = null;
     let text: any = null;
+    let name: any = null;
     if (this.props.selectedRace) {
+      name = <h2 className={`cu-character-creation__race-select_name`}>{this.props.selectedRace.name}</h2>
       view = <div className={`cu-character-creation__race-select__view-area__${race[this.props.selectedRace.id]}`}></div>
       text = <div className='cu-character-creation__race-select__text'>{raceText[race[this.props.selectedRace.id]]}</div>
     }
 
     return (
       <div className='cu-character-creation__race-select'>
+          {name}
         <video src={`../videos/${this.props.selectedFaction.shortName}.webm`} poster={`../videos/${this.props.selectedFaction.shortName}-bg.jpg`} autoPlay loop></video>
         <div className='cu-character-creation__race-select__selection-area'>
           <h6>Choose your race</h6>
