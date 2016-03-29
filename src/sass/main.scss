@@ -85,7 +85,7 @@ a {
 }
 
 h6 {
-  color: lighten($color4, 50%);
+  color: lighten($color4, 40%);
   padding: 2.5px;
   font-size: 18px;
 }
@@ -107,23 +107,48 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
 // overlay stuff goes last :)
 .cu-character-creation__faction-select__TDD.active{
   border: none;
-  box-shadow: inset 0px -220px 210px -10px rgba(60, 115, 0, 0.3);
+  box-shadow: inset 0px -220px 210px -10px $trans-tdd;
   outline: 1px solid rgba(223, 255, 120, 0.6);
   outline-offset: -15px;
+  -webkit-filter: brightness(1.2);
+  &:before {
+    content: '';
+    background: linear-gradient(transparent, $trans-tdd);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
 }
 
 .cu-character-creation__faction-select__Arthurian.active {
   border: none;
-  box-shadow: inset 0px -220px 210px -10px rgba(136, 0, 0, 0.3);
+  box-shadow: inset 0px -220px 210px -10px $trans-art;
   outline: 1px solid rgba(255, 100, 94, 0.6);
   outline-offset: -15px;
+  &:before {
+    content: '';
+    background: linear-gradient(transparent, $trans-art);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
 }
 
 .cu-character-creation__faction-select__Viking.active {
   border: none;
-  box-shadow: inset 0px -220px 210px -10px rgba(0, 86, 136, 0.3);
+  box-shadow: inset 0px -220px 210px -10px $trans-vik;
   outline: 1px solid rgba(94, 219, 255, 0.6);
   outline-offset: -15px;
+  &:before {
+    content: '';
+    background: linear-gradient(transparent, $trans-vik);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
 }
 
 .active {
@@ -131,4 +156,6 @@ input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]),
   box-shadow: inset 0px -10px 40px 0px rgba(255, 225, 78, 0.58);
   outline: 1px solid rgba(255,225,78,0.50);
   outline-offset: -3px;
+  -webkit-filter: brightness(1.2);
+  filter: brightness(1.2);
 }

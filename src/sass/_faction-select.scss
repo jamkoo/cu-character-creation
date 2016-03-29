@@ -11,8 +11,12 @@
 }
 
 h4{
-    text-align: center;
-    font-size: 1.5rem;
+  text-align: center;
+  font-size: 1.9rem;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Caudex';
 }
 
 @mixin faction-select-realm($bg_url) {
@@ -21,13 +25,13 @@ h4{
   position: relative;
   video {
     position: absolute;
-    left: -50%;
+    left: 0;
     top: 0;
     height: 100%;
-    z-index: -1;
+    z-index: -3;
   }
   overflow: hidden;
-  transition: flex-grow .3s ease-in-out, padding .3s ease-in-out;
+  transition: flex-grow .3s ease-in-out, padding .3s ease-in-out, opacity .3s ease-in-out;
   flex-grow: 1;
   display: inline;
   justify-content: center;
