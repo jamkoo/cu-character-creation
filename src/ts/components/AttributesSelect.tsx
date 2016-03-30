@@ -55,7 +55,7 @@ class AttributesSelect extends React.Component<AttributesSelectProps, Attributes
     return (
       <div className='cu-character-creation__attribute-select'>
         <div className='cu-character-creation__attribute-select__selection-area'>
-          <h6>Distribute attribute points  (Remaining {this.props.remainingPoints})</h6>
+          <h6>Distribute attribute points  <span className='points'>(Remaining {this.props.remainingPoints})</span></h6>
           {this.props.attributes.map(this.generateAttributeContent)}
         </div>
         <div>
