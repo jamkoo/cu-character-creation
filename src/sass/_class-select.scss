@@ -23,5 +23,21 @@
 }
 
 a.cu-character-creation__class-select__FIREMAGE{
-    @include class-thumbnail('../images/races/standing/hamadryad.png');
+    @include class-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/icon_black-knight.png');
+}
+
+a.cu-character-creation__class-select__FIGHTER{
+    @include class-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/icon_blackguard.png');
+}
+
+a.cu-character-creation__class-select__HEALER{
+    @include class-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/icon_blackguard.png');
+}
+
+a.cu-character-creation__class-select__MELEECOMBATTEST{
+    @include class-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/icon_blackguard.png');
+}
+
+a.cu-character-creation__class-select__ARCHERTEST{
+    @include class-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/icon_blackguard.png');
 }
