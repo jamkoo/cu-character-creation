@@ -6,7 +6,7 @@
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import CharacterCreation from './components/CharacterCreation';
+import CharacterCreation from './character-creation/CharacterCreation';
 
 const host = 'https://api.camelotunchained.com/';
 //const host = 'http://localhost:1337/';
@@ -17,6 +17,7 @@ const shard = 1;
 ReactDOM.render(<CharacterCreation apiHost={host}
                                    apiVersion={version}
                                    apiKey={apiKey}
-                                   shard={shard} />,
+                                   shard={shard}
+                                   created={() => alert('created!')} />,
                 document.getElementById('cu-character-creation')
 );

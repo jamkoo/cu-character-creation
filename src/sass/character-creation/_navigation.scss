@@ -5,19 +5,20 @@
  */
 
 .cu-character-creation__navigation {
-  position: fixed;
-  bottom: 0px;
+  position: absolute;
+  bottom: 70px;
   left: 0px;
   right: 0px;
   z-index: 101;
   padding: 50px 0 20px 0;
+  -webkit-user-select: none !important;
   background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.50));
 }
 
 .cu-character-creation__name {
   width: 300px;
-  position: fixed;
-  bottom: 80px;
+  position: absolute;
+  bottom: 150px;
   right: 25px;
   z-index: 102;
 }

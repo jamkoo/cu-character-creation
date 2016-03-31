@@ -18,8 +18,14 @@ let factions = factionsReducer;
 import attributesReducer from './attributes';
 let attributes = attributesReducer;
 
+import attributeOffsetsReducer from './attributeOffsets';
+let attributeOffsets = attributeOffsetsReducer;
+
 import gendersReducer from './genders';
 let gender = gendersReducer;
+
+import characterReducer from './character';
+let character = characterReducer;
 
 export default combineReducers({
   races,
@@ -27,4 +33,6 @@ export default combineReducers({
   factions,
   attributes,
   gender,
+  attributeOffsets,
+  character,
 });

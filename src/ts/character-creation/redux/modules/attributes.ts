@@ -11,7 +11,7 @@ import {race, gender} from 'camelot-unchained';
 import {fetchJSON} from '../../utils/fetchHelpers';
 import ResponseError from '../../utils/ResponseError';
 
-const totalPoints = 20;
+const totalPoints = 30;
 
 export enum AttributeType {
   None,
@@ -32,12 +32,6 @@ export interface AttributeInfo {
   minValue: number, // based on race & gender selections -- filled out when calling
 }
 
-export interface AttributeOffsetInfo {
-  race: race;
-  gender: gender;
-  attributeOffsets: any;
-}
-
 const FETCH_ATTRIBUTES = 'cu-character-creation/attributes/FETCH_ATTRIBUTES';
 const FETCH_ATTRIBUTES_SUCCESS = 'cu-character-creation/attributes/FETCH_ATTRIBUTES_SUCCESS';
 const FETCH_ATTRIBUTES_FAILED = 'cu-character-creation/attributes/FETCH_ATTRIBUTES_FAILED';
@@ -48,24 +42,11 @@ const UPDATE_WITH_OFFSETS = 'cu-character-creation/attributes/UPDATE_WITH_OFFSET
 const FETCH_OFFSETS = 'cu-character-creation/attributes/FETCH_OFFSETS';
 const FETCH_OFFSETS_SUCCESS = 'cu-character-creation/attributes/FETCH_OFFSETS_SUCCESS';
 
-// internal data for offsets
-let attributeOffsets: Array<AttributeOffsetInfo> = [];
-
-
 export function allocateAttributePoint(name: string, value: number) {
   return {
     type: ALLOCATE_ATTRIBUTE_POINT,
     name: name,
     value: value,
-  }
-}
-
-export function updateAttributesWithOffsets(race: race, gender: gender) {
-  return {
-    type: UPDATE_WITH_OFFSETS,
-    race: race,
-    gender: gender,
-    offsets: attributeOffsets,
   }
 }
 
@@ -93,14 +74,8 @@ export function fetchAttributesFailed(error: ResponseError) {
 export function fetchAttributes(apiUrl: string = 'https://api.camelotunchained.com/', shard: number = 1, apiVersion: number = 1) {
   return (dispatch: (action: any) => any) => {
     dispatch(requestAttributes());
-    return fetchJSON(`${apiUrl}gamedata/attributes?api-version=${apiVersion}`)
+    return fetchJSON(`${apiUrl}gamedata/attributes/${shard}?api-version=${apiVersion}`)
       .then((attributes: Array<AttributeInfo>) => attributes.map((a: AttributeInfo) => {
-          // async get offsets -- if this fails we ignore it
-          fetchJSON(`${apiUrl}gamedata/attributeoffsets/${shard}?api-version=${apiVersion}`)
-            .then((attributes: Array<AttributeOffsetInfo>) => {
-              attributeOffsets = attributes.slice();
-            })
-            .catch((error: ResponseError) => /* sad  panda */ error);
           a.allocatedPoints = 0;
           a.minValue = a.baseValue;
           return a;
@@ -114,7 +89,6 @@ export interface AttributesState {
   isFetching?: boolean;
   lastUpdated?: Date;
   attributes?: Array<AttributeInfo>;
-  attributeOffsets?: Array<AttributeOffsetInfo>;
   error?: string;
   allocations?: Array<{name: string, value: number}>;
   pointsAllocated?: number;
@@ -125,7 +99,6 @@ const initialState: AttributesState  = {
   isFetching: false,
   lastUpdated: <Date>null,
   attributes: <Array<AttributeInfo>>[],
-  attributeOffsets: <Array<AttributeOffsetInfo>>[],
   error: null,
   allocations: [],
   pointsAllocated: 0,
@@ -160,18 +133,6 @@ export default function reducer(state: AttributesState = initialState, action: a
           return a;
         }),
         pointsAllocated: state.pointsAllocated + allocated,
-      });
-    case UPDATE_WITH_OFFSETS:
-      if (action.offsets.length === 0) return state;
-      const offset = action.offsets.find((o: AttributeOffsetInfo) => o.race == action.race && o.gender == action.gender);
-      if (typeof offset === 'undefined' || offset == null) return state;
-      return Object.assign({}, state, {
-        attributes: state.attributes.map((a: AttributeInfo) => {
-          if (typeof offset.attributeOffsets[a.name] !== 'undefined') {
-            a.minValue = a.baseValue + action.offsetInfo.attributeOffsets[a.name];
-          }
-          return a;
-        }),
       });
     default: return state;
   }
