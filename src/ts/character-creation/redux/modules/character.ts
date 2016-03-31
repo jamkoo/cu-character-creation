@@ -38,8 +38,7 @@ const CREATE_CHARACTER_FAILED = 'cu-character-creation/character/CREATE_CHARACTE
 
 export function createCharacter(model: CharacterCreationModel,
                                 apiKey: string,
-                                //apiUrl: string = 'https://api.camelotunchained.com/',
-                                apiUrl: string = 'http://localhost:1337/',
+                                apiUrl: string = 'https://api.camelotunchained.com/',
                                 shard: number = 1,
                                 apiVersion: number = 1) {
   model.banes = defaultBanes;
@@ -57,8 +56,8 @@ export function createCharacter(model: CharacterCreationModel,
           'loginToken': apiKey
         }
       })
-      .then(checkStatus).then(() => createCharacterSuccess())
-      .catch((error: ResponseError) => createCharacterFailed(error))
+      .then(checkStatus).then(() => dispatch(createCharacterSuccess()))
+      .catch((error: ResponseError) => dispatch(createCharacterFailed(error)))
   }
 }
 

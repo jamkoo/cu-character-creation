@@ -10,15 +10,11 @@ import 'isomorphic-fetch';
 import {fetchJSON} from '../../utils/fetchHelpers';
 import ResponseError from '../../utils/ResponseError';
 
-const apiUrl = 'https://api.camelotunchained.com/';
-const apiVersion = 1;
-const shard = 1;
-
 export interface FactionInfo {
   id: number,
   name: string,
   description: string,
-  shortName: string 
+  shortName: string
 }
 
 const FETCH_FACTIONS = 'cu-character-creation/factions/FETCH_FACTIONS';
@@ -54,7 +50,7 @@ export function selectFaction(selected: FactionInfo) {
   }
 }
 
-export function fetchFactions() {
+export function fetchFactions(apiUrl: string = 'https://api.camelotunchained.com/', shard: number = 1, apiVersion: number = 1) {
   return (dispatch: (action: any) => any) => {
     dispatch(requestFactions());
     return fetchJSON(`${apiUrl}gamedata/factions?api-version=${apiVersion}`)

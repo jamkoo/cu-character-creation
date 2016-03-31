@@ -39,6 +39,28 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'CaudexItalic';
+  src: url(../font/Caudex/Caudex-Italic.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CaudexBold';
+  src: url(../font/Caudex/Caudex-Bold.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CaudexBoldItalic';
+  src: url(../font/Caudex/Caudex-BoldItalic.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 html {
   font-family: 'TitilliumWeb', sans-serif;
 }
@@ -47,8 +69,8 @@ body {
   font-family: 'TitilliumWeb', sans-serif;
 }
 
-h2, h3, h5, h6 {
-  font-family: 'TitilliumWebBold';
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'CaudexBold';
   font-weight: normal;
 }
 
@@ -65,5 +87,5 @@ strong em {
 }
 
 strong, b {
-  font-family: 'TitilliumWebBold'; 
+  font-family: 'TitilliumWebBold';
 }

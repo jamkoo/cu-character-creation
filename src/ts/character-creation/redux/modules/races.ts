@@ -12,10 +12,6 @@ import ResponseError from '../../utils/ResponseError';
 
 import {race, faction} from 'camelot-unchained';
 
-const apiUrl = 'https://api.camelotunchained.com/';
-const apiVersion = 1;
-const shard = 1;
-
 export interface RaceInfo {
   name: string,
   description: string,
@@ -56,7 +52,7 @@ export function selectRace(selected: RaceInfo) {
   }
 }
 
-export function fetchRaces() {
+export function fetchRaces(apiUrl: string = 'https://api.camelotunchained.com/', shard: number = 1, apiVersion: number = 1) {
   return (dispatch: (action: any) => any) => {
     dispatch(requestRaces());
     return fetchJSON(`${apiUrl}gamedata/races?api-version=${apiVersion}`)

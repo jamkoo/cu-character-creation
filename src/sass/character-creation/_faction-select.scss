@@ -22,8 +22,9 @@ h4{
 }
 
 @mixin faction-select-realm($bg_url) {
-  background-image: url($bg_url);
-  background-size: cover;
+  //background-image: url($bg_url);
+  //background-size: cover;
+  background-image: url('../images/temp.jpg');
   position: relative;
   video {
     position: absolute;
@@ -59,8 +60,8 @@ h4{
   background-position: center;
   height: 200px;
   width: 200px;
-  margin: auto;
   cursor: pointer !important;
+  margin: auto;
 }
 
 @mixin faction-select__description() {

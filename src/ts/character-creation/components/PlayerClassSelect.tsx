@@ -10,9 +10,9 @@ import {archetype, faction} from 'camelot-unchained';
 import {PlayerClassInfo} from '../redux/modules/playerClasses';
 
 const classText: any = {
-  'FLAMEWARDEN': 'foo things and stuff',
-  
-  
+  'BLACKKNIGHT': 'foo things and stuff',
+
+
 }
 
 export interface PlayerClassSelectProps {
@@ -45,22 +45,25 @@ class PlayerClassSelect extends React.Component<PlayerClassSelectProps, PlayerCl
 
   render() {
     if (!this.props.classes) return <div> loading classes</div>;
-    
+
     let view: any = null;
     let text: any = null;
+    let name: any = null;
     if (this.props.selectedClass) {
+      name = <h2 className={`cu-character-creation__race-select_name`}>{this.props.selectedClass.name}</h2>
       view = <div className={`cu-character-creation__race-select__view-area__${archetype[this.props.selectedClass.id]}`}></div>
-      text = <div className='cu-character-creation__race-select__text'>{classText['FLAMEWARDEN']}</div>
+      text = <div className='cu-character-creation__race-select__text'>{this.props.selectedClass.description}</div>
     }
-    
+
     return (
-      <div className='cu-character-creation__class-select'>
-        <div className='cu-character-creation__class-select__selection-area'>
+      <div className='cu-character-creation__race-select'>
+          {name}
+        <div className='cu-character-creation__race-select__selection-area'>
           <h6>Choose your class</h6>
           {this.props.classes.filter((c:any) => c.faction === this.props.faction || c.faction == faction.FACTIONLESS).map(this.generateClassContent)}
           {text}
         </div>
-        <div className='cu-character-creation__class-select__view-area'>
+        <div className='cu-character-creation__race-select__view-area'>
           {view}
         </div>
       </div>
