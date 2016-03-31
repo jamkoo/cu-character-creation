@@ -139,6 +139,7 @@ class CharacterCreation extends React.Component<CharacterCreationProps, any> {
   render() {
     if (this.props.characterState.success) {
       this.props.created();
+      this.props.dispatch(resetCharacter());
     }
 
     let content: any = null;
