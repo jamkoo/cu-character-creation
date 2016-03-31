@@ -24,7 +24,7 @@ import {FactionsState, fetchFactions, selectFaction, FactionInfo} from './redux/
 import {PlayerClassesState, fetchPlayerClasses, selectPlayerClass, PlayerClassInfo} from './redux/modules/playerClasses';
 import {AttributesState, fetchAttributes, allocateAttributePoint, AttributeInfo, AttributeType} from './redux/modules/attributes';
 import {AttributeOffsetsState, fetchAttributeOffsets, AttributeOffsetInfo} from './redux/modules/attributeOffsets';
-import {CharacterState, createCharacter, CharacterCreationModel} from './redux/modules/character';
+import {CharacterState, createCharacter, CharacterCreationModel, resetCharacter} from './redux/modules/character';
 import {selectGender} from './redux/modules/genders';
 
 const createStoreWithMiddleware = applyMiddleware(
@@ -112,6 +112,7 @@ class CharacterCreation extends React.Component<CharacterCreationProps, any> {
 
 
   componentWillMount() {
+    this.props.dispatch(resetCharacter());
     this.props.dispatch(fetchFactions(this.props.apiHost, this.props.shard, this.props.apiVersion));
     this.props.dispatch(fetchRaces(this.props.apiHost, this.props.shard, this.props.apiVersion));
     this.props.dispatch(fetchPlayerClasses(this.props.apiHost, this.props.shard, this.props.apiVersion));
