@@ -6,7 +6,7 @@
 
 import * as React from 'react';
 import {race, gender} from 'camelot-unchained';
-import {AttributeInfo} from '../redux/modules/attributes';
+import {AttributeInfo, attributeType} from '../redux/modules/attributes';
 import {AttributeOffsetInfo} from '../redux/modules/attributeOffsets';
 
 
@@ -41,19 +41,29 @@ class AttributesSelect extends React.Component<AttributesSelectProps, Attributes
   }
 
   generateAttributeContent = (attributeInfo: AttributeInfo, offset: AttributeOffsetInfo) => {
-    if (attributeInfo.type !== 1) return null;
+    if (attributeInfo.type !== attributeType.PRIMARY) return null;
     let allocatedCount = 0;//this.props.allocations[attributeInfo.name]
     let offsetValue = offset == null ? 0 : typeof offset.attributeOffsets[attributeInfo.name] === 'undefined' ? 0 : offset.attributeOffsets[attributeInfo.name];
     return (
-      <div key={attributeInfo.name} className={`cu-character-creation__attributes__attribute-select--${attributeInfo.name}`}>
-        <div>
-          <span className='hint--right hint--slide' data-hint={attributeInfo.description}>{attributeInfo.name} </span>
-          <button className='leftarrow' onClick={() => this.props.allocatePoint(attributeInfo.name, -1)}></button>
-          <span className='attribute-points'>{attributeInfo.baseValue + attributeInfo.allocatedPoints + offsetValue}</span>
-          <button className='rightarrow' onClick={() => this.props.allocatePoint(attributeInfo.name, 1)} ></button>
-        </div>
+      <div key={attributeInfo.name} className='attribute-row'>
+        <span>{attributeInfo.name} </span>
+        <button className='rightarrow right' onClick={() => this.props.allocatePoint(attributeInfo.name, 1)} ></button>
+        <span className='attribute-points right'>{attributeInfo.baseValue + attributeInfo.allocatedPoints + offsetValue}</span>
+        <button className='leftarrow right' onClick={() => this.props.allocatePoint(attributeInfo.name, -1)}></button>
       </div>
     );
+  }
+
+  generateAttributeView = (info: AttributeInfo, value: number) => {
+    return (
+      <div key={info.name} className='attribute-row'>
+        <span className='hint--right hint--slide' data-hint={info.description}>{info.name} </span>
+        <span className='attribute-points right'>{value}</span>
+        <div className='attribute-description'>
+        {info.description}
+        </div>
+      </div>
+    )
   }
 
   render() {
@@ -62,13 +72,31 @@ class AttributesSelect extends React.Component<AttributesSelectProps, Attributes
     }
     let offset = this.props.attributeOffsets.find((o: AttributeOffsetInfo) => o.gender == this.props.selectedGender && o.race == this.props.selectedRace);
     if (typeof offset === 'undefined') offset = null;
+
+    let primaries = this.props.attributes.filter((a: AttributeInfo) => a.type == attributeType.PRIMARY);
+    let secondaries = this.props.attributes.filter((a: AttributeInfo) => a.type == attributeType.SECONDARY);
+    let derived = this.props.attributes.filter((a: AttributeInfo) => a.type == attributeType.DERIVED);
+
     return (
-      <div className='cu-character-creation__attribute-select'>
-        <div className='cu-character-creation__attribute-select__selection-area'>
+      <div className='page'>
+        <video src={`../videos/paper-bg.webm`} poster={`../videos/paper-bg.jpg`} autoPlay loop></video>
+        <div className='selection-box'>
           <h6>Distribute attribute points  <span className='points'>(Remaining {this.props.remainingPoints})</span></h6>
           {this.props.attributes.map((a: AttributeInfo) => this.generateAttributeContent(a, offset))}
         </div>
-        <div>
+        <div className='view-content row attributes-view'>
+          <div className='col s6'>
+            <h4>Primary</h4>
+            {primaries.map((a: AttributeInfo) => this.generateAttributeView(a, a.baseValue))}
+            <div className='row'>
+              <h4>Secondary</h4>
+              {secondaries.map((a: AttributeInfo) => this.generateAttributeView(a, a.baseValue))}
+            </div>
+          </div>
+          <div className='col s6'>
+            <h4>Derived</h4>
+            {derived.map((a: AttributeInfo) => this.generateAttributeView(a, a.baseValue))}
+          </div>
         </div>
       </div>
     )

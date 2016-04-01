@@ -4,15 +4,16 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 @import 'constants';
-@import 'font';
 
 #cu-character-creation {
+  @import 'font';
   height: 100%;
   margin: 0;
   overflow: hidden;
   background: url(../images/bg.jpg) repeat-x top center fixed;
   background-color: $color2;
   color: white;
+  font-family: 'TitilliumWeb', sans-serif;
 
   .right {
     float: right;
@@ -96,17 +97,17 @@
 
     }
   }
-}
 
-@import 'preloader';
-@import 'faction-select';
-@import 'race-select';
-@import 'class-select';
-@import 'attribute-select';
-@import 'navigation';
-@import 'responsive';
+  @import 'preloader';
+  @import 'layout';
+  @import 'display-images';
+  @import 'faction-select';
+  @import 'race-select';
+  @import 'class-select';
+  @import 'attribute-select';
+  @import 'navigation';
+  @import 'responsive';
 
-#cu-character-creation {
   // overlay stuff goes last :)
   .cu-character-creation__faction-select__TDD.active{
     border: none;

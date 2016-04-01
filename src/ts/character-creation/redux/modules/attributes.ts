@@ -13,11 +13,11 @@ import ResponseError from '../../utils/ResponseError';
 
 const totalPoints = 30;
 
-export enum AttributeType {
-  None,
-  Primary,        // can adjust during character creation, and can be raised through progression
-  Secondary,      // can set during character creation, locked after creation
-  Derived         // calculated from primary or secondary attributes, player can not directly change
+export enum attributeType {
+  NONE,
+  PRIMARY,        // can adjust during character creation, and can be raised through progression
+  SECONDARY,      // can set during character creation, locked after creation
+  DERIVED         // calculated from primary or secondary attributes, player can not directly change
 }
 
 export interface AttributeInfo {
@@ -25,7 +25,7 @@ export interface AttributeInfo {
   description: string,
   derivedFrom: string, // only on derived attributes
   baseValue: number,
-  type: AttributeType,
+  type: attributeType,
   isPercentage: boolean, // some derived attributes are percentage based
   // Added by patcher -- not in the api response message
   allocatedPoints: number,
@@ -41,6 +41,15 @@ const UPDATE_WITH_OFFSETS = 'cu-character-creation/attributes/UPDATE_WITH_OFFSET
 
 const FETCH_OFFSETS = 'cu-character-creation/attributes/FETCH_OFFSETS';
 const FETCH_OFFSETS_SUCCESS = 'cu-character-creation/attributes/FETCH_OFFSETS_SUCCESS';
+
+const RESET = 'cu-character-creation/attributes/RESET';
+
+export function resetAttributes() {
+  return {
+    type: RESET,
+    state: initialState,
+  }
+}
 
 export function allocateAttributePoint(name: string, value: number) {
   return {
@@ -134,6 +143,8 @@ export default function reducer(state: AttributesState = initialState, action: a
         }),
         pointsAllocated: state.pointsAllocated + allocated,
       });
+    case RESET:
+      return action.state;
     default: return state;
   }
 }

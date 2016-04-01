@@ -19,5 +19,5 @@ ReactDOM.render(<CharacterCreation apiHost={host}
                                    apiKey={apiKey}
                                    shard={shard}
                                    created={() => alert('created!')} />,
-                document.getElementById('cu-character-creation')
+                document.getElementById('app')
 );
