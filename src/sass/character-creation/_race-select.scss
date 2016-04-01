@@ -26,7 +26,7 @@
 .cu-character-creation__race-select_name {
   position: absolute;
   left: 350px;
-  z-index: 2;
+  z-index: 1;
 }
 
 .gender-btn {
@@ -34,7 +34,7 @@
   margin: 5px;
   -webkit-user-select: none;
   cursor: pointer !important;
-  padding: 10px 20px;
+  padding: 5px 20px;
   font-weight: 700;
   text-align: center;
   background: $gradient2;
@@ -119,6 +119,10 @@
   min-width: 100%;
   border: 1px solid rgba(70, 70, 70, 0.78);
   padding: 5px;
+}
+
+h2.cu-character-creation__race-select_name{
+    font-family: 'Caudex';
 }
 
 .cu-character-creation__race-select__PICT__thumbnail {
