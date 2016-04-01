@@ -31,7 +31,7 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
-.cu-character-creation__attribute-select__selection-area div{
+.attribute-row{
     width: 100%;
     display: block;
     margin-bottom: 8px;
@@ -49,4 +49,14 @@ span.points {
     font-size: .8em;
     font-family: 'TitilliumWeb';
     color: rgb(206, 181, 59);
+}
+
+.attributes-view {
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 175px;
+}
+
+.attribute-description {
+  color: rgba(255, 255, 255, 0.6);
 }

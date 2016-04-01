@@ -52,7 +52,7 @@
     "serve": "http-server -p 9000 dist/"
   },
   "dependencies": {
-    "camelot-unchained": "^0.2.17",
+    "camelot-unchained": "^0.2.19",
     "es6-promise": "^3.1.2",
     "isomorphic-fetch": "^2.2.1",
     "normalizr": "^2.0.0",

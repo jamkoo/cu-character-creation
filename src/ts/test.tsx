@@ -11,7 +11,7 @@ import CharacterCreation from './character-creation/CharacterCreation';
 const host = 'https://api.camelotunchained.com/';
 //const host = 'http://localhost:1337/';
 const version = 1;
-const apiKey = 'abcdefg';
+const apiKey = 'NPcL6l5mmh6R0plqdDU911';
 const shard = 1;
 
 ReactDOM.render(<CharacterCreation apiHost={host}
@@ -19,5 +19,5 @@ ReactDOM.render(<CharacterCreation apiHost={host}
                                    apiKey={apiKey}
                                    shard={shard}
                                    created={() => alert('created!')} />,
-                document.getElementById('cu-character-creation')
+                document.getElementById('app')
 );

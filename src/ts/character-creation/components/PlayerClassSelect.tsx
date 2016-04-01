@@ -8,18 +8,18 @@ import * as React from 'react';
 
 import {archetype, faction} from 'camelot-unchained';
 import {PlayerClassInfo} from '../redux/modules/playerClasses';
+import {FactionInfo} from '../redux/modules/factions';
+import Animate from '../utils/Animate';
 
 const classText: any = {
   'BLACKKNIGHT': 'foo things and stuff',
-
-
 }
 
 export interface PlayerClassSelectProps {
   classes: Array<PlayerClassInfo>;
   selectedClass: PlayerClassInfo;
   selectClass: (playerClass: PlayerClassInfo) => void;
-  faction: faction;
+  selectedFaction: FactionInfo;
 }
 
 export interface PlayerClassSelectState {
@@ -38,7 +38,7 @@ class PlayerClassSelect extends React.Component<PlayerClassSelectProps, PlayerCl
   generateClassContent = (info: PlayerClassInfo) => {
     return (
       <a key={info.id}
-              className={`cu-character-creation__class-select__${archetype[info.id]} ${this.props.selectedClass !== null ? this.props.selectedClass.id == info.id ? 'active' : '' : ''}`}
+              className={`thumb__${archetype[info.id]} ${this.props.selectedClass !== null ? this.props.selectedClass.id == info.id ? 'active' : '' : ''}`}
               onClick={this.selectClass.bind(this, info)}></a>
     );
   }
@@ -46,25 +46,45 @@ class PlayerClassSelect extends React.Component<PlayerClassSelectProps, PlayerCl
   render() {
     if (!this.props.classes) return <div> loading classes</div>;
 
+    let videoTitle = this.props.selectedFaction.shortName;
     let view: any = null;
     let text: any = null;
     let name: any = null;
     if (this.props.selectedClass) {
-      name = <h2 className={`cu-character-creation__race-select_name`}>{this.props.selectedClass.name}</h2>
-      view = <div className={`cu-character-creation__race-select__view-area__${archetype[this.props.selectedClass.id]}`}></div>
-      text = <div className='cu-character-creation__race-select__text'>{this.props.selectedClass.description}</div>
+      name = <h2 className='display-name'>{this.props.selectedClass.name}</h2>
+      view = <div className={`standing__${archetype[this.props.selectedClass.id]}`}></div>
+      text = <div className='selection-description'>{this.props.selectedClass.description}</div>
+      switch(this.props.selectedClass.id)
+      {
+        case archetype.WINTERSSHADOW: videoTitle = 'archer'; break;
+        case archetype.FORESTSTALKER: videoTitle = 'archer'; break;
+        case archetype.BLACKGUARD: videoTitle = 'archer'; break;
+        case archetype.BLACKKNIGHT: videoTitle = 'heavy'; break;
+        case archetype.FIANNA: videoTitle = 'heavy'; break;
+        case archetype.MJOLNIR: videoTitle = 'heavy'; break;
+        case archetype.PHYSICIAN: videoTitle = 'healers'; break;
+        case archetype.EMPATH: videoTitle = 'healers'; break;
+        case archetype.STONEHEALER: videoTitle = 'healers'; break;
+      }
     }
 
+
+
+
     return (
-      <div className='cu-character-creation__race-select'>
+      <div className='page'>
+        <video src={`../videos/${videoTitle}.webm`} poster={`../videos/${videoTitle}.jpg`} autoPlay loop></video>
           {name}
-        <div className='cu-character-creation__race-select__selection-area'>
+        <div className='selection-box'>
           <h6>Choose your class</h6>
-          {this.props.classes.filter((c:any) => c.faction === this.props.faction || c.faction == faction.FACTIONLESS).map(this.generateClassContent)}
+          {this.props.classes.filter((c:any) => c.faction === this.props.selectedFaction.id || c.faction == faction.FACTIONLESS).map(this.generateClassContent)}
           {text}
         </div>
-        <div className='cu-character-creation__race-select__view-area'>
+        <div className='view-content'>
+          <Animate className='animate' animationEnter='fadeIn' animationLeave='fadeOut'
+          durationEnter={400} durationLeave={500}>
           {view}
+        </Animate>
         </div>
       </div>
     )
