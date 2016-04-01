@@ -25,8 +25,11 @@
 
 .cu-character-creation__race-select_name {
   position: absolute;
-  left: 350px;
   z-index: 1;
+  width: calc(100% - 320px);
+  right: 0;
+  top: 0px;
+  text-align: center;
 }
 
 .gender-btn {
@@ -114,10 +117,11 @@
 .cu-character-creation__race-select__text {
   color: #e2e2e2;
   overflow-y: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   height: 300px;
   min-width: 100%;
   border: 1px solid rgba(70, 70, 70, 0.78);
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), transparent);
   padding: 5px;
 }
 
@@ -126,7 +130,7 @@ h2.cu-character-creation__race-select_name{
 }
 
 .cu-character-creation__race-select__PICT__thumbnail {
-  @include race-thumbnail('../images/temp.jpg');
+  @include race-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/icon_pict-m.png');
 }
 
 .cu-character-creation__race-select__LUCHORPAN__thumbnail {
