@@ -56,11 +56,15 @@ class AttributesSelect extends React.Component<AttributesSelectProps, Attributes
 
   generateAttributeView = (info: AttributeInfo, value: number) => {
     return (
-      <div key={info.name} className='attribute-row'>
-        <span className='hint--right hint--slide' data-hint={info.description}>{info.name} </span>
-        <span className='attribute-points right'>{value}</span>
+      <div key={info.name} className='attribute-row row'>
+        <div className='col s10'>
+        {info.name}
         <div className='attribute-description'>
         {info.description}
+        </div>
+        </div>
+        <div className='col s2 attribute-points'>
+          {value}
         </div>
       </div>
     )
