@@ -26,7 +26,7 @@ export interface AttributeInfo {
   derivedFrom: string, // only on derived attributes
   baseValue: number,
   type: attributeType,
-  isPercentage: boolean, // some derived attributes are percentage based
+  maxOrMultipler: number,
   // Added by patcher -- not in the api response message
   allocatedPoints: number,
   minValue: number, // based on race & gender selections -- filled out when calling
