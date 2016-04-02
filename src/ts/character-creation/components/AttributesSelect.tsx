@@ -66,13 +66,13 @@ class AttributesSelect extends React.Component<AttributesSelectProps, Attributes
         {info.description}
         </div>
         </div>
-        
+
       </div>
     )
   }
 
   calculateDerivedValue = (derivedInfo: AttributeInfo, offset: AttributeOffsetInfo) => {
-    let primaryInfo = this.props.attributes.find((a: AttributeInfo) => a.name == info.derivedFrom);
+    let primaryInfo = this.props.attributes.find((a: AttributeInfo) => a.name == derivedInfo.derivedFrom);
     let primaryOffsetValue = offset == null ? 0 : typeof offset.attributeOffsets[primaryInfo.name] === 'undefined' ? 0 : offset.attributeOffsets[primaryInfo.name];
     let primaryValue = primaryInfo.baseValue + primaryInfo.allocatedPoints + primaryOffsetValue;
 
