@@ -39,10 +39,10 @@
 }
 
 .thumb__PICT--MALE {
-  @include selection-thumbnail('../images/temp.jpg');
+  @include selection-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/icon_pict-m.png');
 }
 .thumb__PICT--FEMALE {
-  @include selection-thumbnail('../images/temp.jpg');
+  @include selection-thumbnail('https://s3.amazonaws.com/camelot-unchained/character-creation/character/icons/icon_pict-f.png');
 }
 
 .thumb__LUCHORPAN--MALE {
