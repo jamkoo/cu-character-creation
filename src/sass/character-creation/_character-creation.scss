@@ -128,7 +128,7 @@
   .cu-character-creation__faction-select__TDD.active{
     border: none;
     box-shadow: inset 0px -220px 210px -10px $trans-tdd;
-    outline: 1px solid rgba(158, 181, 85, 0.4);
+    outline: 1px solid rgba(158, 181, 85, 0.6);
     outline-offset: -10px;
     -webkit-filter: brightness(1.2);
     &:before {
@@ -144,7 +144,7 @@
   .cu-character-creation__faction-select__Arthurian.active {
     border: none;
     box-shadow: inset 0px -220px 210px -10px darken($trans-art, 20%);
-    outline: 1px solid rgba(199, 73, 68, 0.4);
+    outline: 1px solid rgba(199, 73, 68, 0.6);
     outline-offset: -10px;
     &:before {
       content: '';
@@ -159,7 +159,7 @@
   .cu-character-creation__faction-select__Viking.active {
     border: none;
     box-shadow: inset 0px -220px 210px -10px $trans-vik;
-    outline: 1px solid rgba(72, 166, 193, 0.4);
+    outline: 1px solid rgba(72, 166, 193, 0.6);
     outline-offset: -10px;
     &:before {
       content: '';
@@ -176,7 +176,7 @@
     box-shadow: inset 0px -10px 40px 0px rgba(255, 225, 78, 0.58);
     outline: 1px solid rgba(255,225,78,0.50);
     outline-offset: -3px;
-    -webkit-filter: brightness(1.2);
-    filter: brightness(1.2);
+    -webkit-filter: brightness(1.4);
+    filter: brightness(1.4);
   }
 }
