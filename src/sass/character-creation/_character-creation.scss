@@ -179,4 +179,20 @@
     -webkit-filter: brightness(1.4);
     filter: brightness(1.4);
   }
+
+}
+.toast {
+  background: $gradient-alert1, radial-gradient(at bottom, rgba(0, 0, 0, 0.8), transparent 70%);
+  text-shadow: 2px 2px black;
+  color: $color1 ;
+  text-align: center;
+  padding: 2px 30px;
+  list-style: none;
+  border-width: 2px 0px;
+  border-image: $gradient-alert1-lt;
+  border-image-slice: 1;
+  box-shadow: none;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  max-width: 300px;
 }
