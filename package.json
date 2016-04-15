@@ -49,7 +49,7 @@
     "prebuild:nix": "npm run clean -s && npm run typings",
     "prebuild": "npm run clean -s && npm run typings",
     "publish": "npm run build",
-    "serve": "http-server -p 9000 dist/"
+    "serve": "http-server -p 9001 dist/"
   },
   "dependencies": {
     "camelot-unchained": "^0.2.19",

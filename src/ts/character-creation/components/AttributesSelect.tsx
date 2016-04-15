@@ -55,13 +55,14 @@ class AttributesSelect extends React.Component<AttributesSelectProps, Attributes
   }
 
   generateAttributeView = (info: AttributeInfo, value: number) => {
+    let stringValue = info.units == 'units' ?  value : value.toFixed(4);
     return (
       <div key={info.name} className='attribute-row row'>
         <div className='col s2 attribute-points'>
-          {value}
+          {stringValue}
         </div>
         <div className='col s10'>
-        {info.name}
+        {info.name} <i>({info.units})</i>
         <div className='attribute-description'>
         {info.description}
         </div>
@@ -72,12 +73,16 @@ class AttributesSelect extends React.Component<AttributesSelectProps, Attributes
   }
 
   calculateDerivedValue = (derivedInfo: AttributeInfo, offset: AttributeOffsetInfo) => {
+    console.log(derivedInfo);
     let primaryInfo = this.props.attributes.find((a: AttributeInfo) => a.name == derivedInfo.derivedFrom);
+    console.log(primaryInfo);
     let primaryOffsetValue = offset == null ? 0 : typeof offset.attributeOffsets[primaryInfo.name] === 'undefined' ? 0 : offset.attributeOffsets[primaryInfo.name];
     let primaryValue = primaryInfo.baseValue + primaryInfo.allocatedPoints + primaryOffsetValue;
 
-    let derived = (derivedInfo.baseValue * derivedInfo.maxOrMultipler + derivedInfo.baseValue)
+    let derivedMax = derivedInfo.baseValue + derivedInfo.baseValue * derivedInfo.maxOrMultipler;
 
+    let derived = derivedInfo.baseValue + (derivedMax - derivedInfo.baseValue) / primaryInfo.maxOrMultipler * primaryValue;
+    return derived;
   }
 
   render() {
@@ -101,15 +106,23 @@ class AttributesSelect extends React.Component<AttributesSelectProps, Attributes
         <div className='view-content row attributes-view'>
           <div className='col s6'>
             <h4>Primary</h4>
-            {primaries.map((a: AttributeInfo) => this.generateAttributeView(a, a.baseValue))}
+            {primaries.map((a: AttributeInfo) => {
+              let offsetValue = offset == null ? 0 : typeof offset.attributeOffsets[a.name] === 'undefined' ? 0 : offset.attributeOffsets[a.name];
+              return this.generateAttributeView(a, a.baseValue + a.allocatedPoints + offsetValue);
+            })}
             <div className='row'>
               <h4>Secondary</h4>
-              {secondaries.map((a: AttributeInfo) => this.generateAttributeView(a, a.baseValue))}
+              {secondaries.map((a: AttributeInfo) => {
+                let offsetValue = offset == null ? 0 : typeof offset.attributeOffsets[a.name] === 'undefined' ? 0 : offset.attributeOffsets[a.name];
+                return this.generateAttributeView(a, a.baseValue + offsetValue);
+              })}
             </div>
           </div>
           <div className='col s6'>
             <h4>Derived</h4>
-            {derived.map((a: AttributeInfo) => this.generateAttributeView(a, a.baseValue))}
+            {derived.map((a: AttributeInfo) => {
+              return this.generateAttributeView(a, this.calculateDerivedValue(a, offset));
+            })}
           </div>
         </div>
       </div>

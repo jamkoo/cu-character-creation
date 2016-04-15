@@ -30,6 +30,7 @@ export interface AttributeInfo {
   // Added by patcher -- not in the api response message
   allocatedPoints: number,
   minValue: number, // based on race & gender selections -- filled out when calling
+  units: string,
 }
 
 const FETCH_ATTRIBUTES = 'cu-character-creation/attributes/FETCH_ATTRIBUTES';
