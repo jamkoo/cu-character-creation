@@ -76,6 +76,14 @@ span.points {
     width: 100%;
     bottom: 195px;
   }
+  .attribute-row{
+    max-width: calc(50% - 10px);
+    display: inline-block;
+    margin-right: 10px;
+    overflow: hidden;
+    min-height: 150px;
+    vertical-align: top;
+  }
   .attribute-points{
     padding: 10px 10px;
     border-width: 1px;
