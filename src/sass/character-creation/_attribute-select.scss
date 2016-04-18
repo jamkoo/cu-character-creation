@@ -76,6 +76,15 @@ span.points {
     width: 100%;
     bottom: 195px;
   }
+  .attribute-row{
+    max-width: calc(50% - 10px);
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    min-height: 150px;
+    vertical-align: top;
+  }
   .attribute-points{
     padding: 10px 10px;
     border-width: 1px;
@@ -99,3 +108,23 @@ span.points {
 .attribute-description {
   color: rgba(255, 255, 255, 0.6);
 }
+
+@media screen and (max-width: 900px) {
+  .attributes-view .attribute-row{
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .attributes-view .attribute-row{
+    max-width: calc(50% - 10px);
+  }
+}
+
+
+@media screen and (min-width: 1600px) {
+  .attributes-view .attribute-row{
+    max-width: calc(33.33% - 10px);
+  }
+}
+
