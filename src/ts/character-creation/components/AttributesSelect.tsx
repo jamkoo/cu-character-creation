@@ -59,10 +59,10 @@ class AttributesSelect extends React.Component<AttributesSelectProps, Attributes
     return (
       <div key={info.name} className='attribute-row row'>
         <div className='col s2 attribute-points'>
-          {stringValue}
+        <span className='attributename'> {info.name} <i>({info.units})</i></span> {stringValue}
         </div>
         <div className='col s10'>
-        {info.name} <i>({info.units})</i>
+        
         <div className='attribute-description'>
         {info.description}
         </div>

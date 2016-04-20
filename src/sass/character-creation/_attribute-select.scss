@@ -82,8 +82,12 @@ span.points {
     margin-right: 10px;
     margin-bottom: 10px;
     overflow: hidden;
-    min-height: 150px;
+    min-height: 50px;
     vertical-align: top;
+    .attributename{
+      float:left;
+      color:#e2e2e2;
+    }
   }
   .attribute-points{
     padding: 10px 10px;
@@ -92,8 +96,7 @@ span.points {
     border-image: linear-gradient(to bottom right, rgba(132, 132, 132, 0.32), transparent);
     border-image-slice: 1;
     min-width: 100%;
-    text-align: left;
-    font-size: 16px;
+    text-align: right;
     background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), transparent);
     color: #C7AC8F;
   }
@@ -117,14 +120,14 @@ span.points {
 
 @media screen and (min-width: 1300px) {
   .attributes-view .attribute-row{
-    max-width: calc(50% - 10px);
+    max-width: calc(33.33% - 10px);
   }
 }
 
 
 @media screen and (min-width: 1600px) {
   .attributes-view .attribute-row{
-    max-width: calc(33.33% - 10px);
+    max-width: calc(25% - 10px);
   }
 }
 
